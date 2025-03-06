@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_bg"
-    tools:context=".MainActivity"
+    tools:context=".LoginActivity"
     android:gravity="top"
     android:padding="16dp">
 
@@ -33,16 +33,16 @@
             android:gravity="center"/>
 
         <EditText
+            android:id="@+id/fullname_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:hint="Full Name"
-            android:textColorHint="@color/white"
-            android:textSize="15sp"
-            android:padding="13dp"
             android:background="@drawable/rounded_corner"
+            android:hint="Full Name"
             android:inputType="text"
-            android:id="@+id/fullname_input"/>
+            android:padding="13dp"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"/>
 
         <EditText
             android:layout_width="match_parent"
