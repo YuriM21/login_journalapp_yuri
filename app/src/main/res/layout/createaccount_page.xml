@@ -38,7 +38,7 @@
             android:layout_marginTop="10dp"
             android:hint="Full Name"
             android:textColorHint="@color/white"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:padding="13dp"
             android:background="@drawable/rounded_corner"
             android:inputType="text"
@@ -50,7 +50,7 @@
             android:layout_marginTop="10dp"
             android:hint="Date of Birth"
             android:textColorHint="@color/white"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:padding="13dp"
             android:background="@drawable/rounded_corner"
             android:inputType="date"
@@ -62,7 +62,7 @@
             android:layout_marginTop="10dp"
             android:hint="Home Address"
             android:textColorHint="@color/white"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:padding="13dp"
             android:background="@drawable/rounded_corner"
             android:inputType="textPostalAddress"
@@ -74,11 +74,47 @@
             android:layout_marginTop="10dp"
             android:hint="Phone number"
             android:textColorHint="@color/white"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:padding="13dp"
             android:background="@drawable/rounded_corner"
             android:inputType="phone"
             android:id="@+id/phonenumber_input"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Username"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"
+            android:padding="13dp"
+            android:background="@drawable/rounded_corner"
+            android:inputType="text"
+            android:id="@+id/createusername_input"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Password"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"
+            android:padding="13dp"
+            android:background="@drawable/rounded_corner"
+            android:inputType="text"
+            android:id="@+id/createpassword_input"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Confirm Password"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"
+            android:padding="13dp"
+            android:background="@drawable/rounded_corner"
+            android:inputType="text"
+            android:id="@+id/confirmpassword_input"/>
 
         <Button
             android:layout_width="match_parent"
