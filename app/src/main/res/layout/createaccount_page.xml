@@ -16,11 +16,30 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:src="@drawable/createaccount_icon"
-            />
+        <!-- Profile Image with Border -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileimage_upload"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="Profile Picture"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            app:shapeAppearanceOverlay="@style/CircleShape"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="2dp"
+            android:background="@drawable/rounded_corner"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Upload Image"
+            android:backgroundTint="#D3D3D3"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:id="@+id/uploadpic_btn" />
 
         <TextView
             android:id="@+id/textView"
@@ -30,67 +49,89 @@
             android:textSize="17dp"
             android:textColor="@color/white"
             android:layout_marginTop="15dp"
-            android:gravity="center"/>
+            android:gravity="center" />
 
-        <EditText
-            android:id="@+id/fullname_input"
+        <!-- Full Name and Date of Birth side by side -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Full Name"
-            android:inputType="text"
-            android:padding="13dp"
-            android:textColorHint="@color/white"
-            android:textSize="15sp"/>
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/fullname_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner"
+                android:hint="Full Name"
+                android:inputType="text"
+                android:padding="13dp"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"/>
+
+            <EditText
+                android:id="@+id/dateofbirth_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Date of Birth"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:padding="13dp"
+                android:background="@drawable/rounded_corner"
+                android:inputType="date"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+
+        <!-- Home Address and Phone Number side by side -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/address_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_corner"
+                android:hint="Home Address"
+                android:inputType="textPostalAddress"
+                android:padding="13dp"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"/>
+
+            <EditText
+                android:id="@+id/phonenumber_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Phone Number"
+                android:textColorHint="@color/white"
+                android:textSize="15sp"
+                android:padding="13dp"
+                android:background="@drawable/rounded_corner"
+                android:inputType="phone"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Date of Birth"
-            android:textColorHint="@color/white"
-            android:textSize="15sp"
-            android:padding="13dp"
-            android:background="@drawable/rounded_corner"
-            android:inputType="date"
-            android:id="@+id/dateofbirth_input"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Home Address"
-            android:textColorHint="@color/white"
-            android:textSize="15sp"
-            android:padding="13dp"
-            android:background="@drawable/rounded_corner"
-            android:inputType="textPostalAddress"
-            android:id="@+id/address_input"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Phone number"
-            android:textColorHint="@color/white"
-            android:textSize="15sp"
-            android:padding="13dp"
-            android:background="@drawable/rounded_corner"
-            android:inputType="phone"
-            android:id="@+id/phonenumber_input"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:hint="Username"
             android:textColorHint="@color/white"
             android:textSize="15sp"
+            android:drawableLeft= "@drawable/user_icon"
+            android:drawablePadding="7dp"
             android:padding="13dp"
             android:background="@drawable/rounded_corner"
             android:inputType="text"
-            android:id="@+id/createusername_input"/>
+            android:id="@+id/createusername_input" />
 
         <EditText
             android:layout_width="match_parent"
@@ -102,7 +143,9 @@
             android:padding="13dp"
             android:background="@drawable/rounded_corner"
             android:inputType="text"
-            android:id="@+id/createpassword_input"/>
+            android:id="@+id/createpassword_input"
+            android:drawableLeft= "@drawable/pass_icon"
+            android:drawablePadding="7dp"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -114,7 +157,9 @@
             android:padding="13dp"
             android:background="@drawable/rounded_corner"
             android:inputType="text"
-            android:id="@+id/confirmpassword_input"/>
+            android:id="@+id/confirmpassword_input"
+            android:drawableLeft= "@drawable/confirm_icon"
+            android:drawablePadding="7dp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -125,9 +170,8 @@
             android:padding="10dp"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
-            android:id="@+id/createaccount_btn"/>
+            android:id="@+id/createaccount_btn" />
 
     </LinearLayout>
-
 
 </RelativeLayout>

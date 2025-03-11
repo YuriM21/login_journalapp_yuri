@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Style for circular ShapeableImageView -->
+    <style name="CircleImageShape" parent="Widget.MaterialComponents.ShapeableImageView">
+        <item name="shapeAppearance">@style/CircleShape</item>
+        <item name="strokeColor">@android:color/white</item>
+        <item name="strokeWidth">4dp</item>
+    </style>
+
+    <!-- Define the circular shape with 50% rounded corners -->
+    <style name="CircleShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
