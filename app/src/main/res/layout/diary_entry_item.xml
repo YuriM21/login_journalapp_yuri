@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@android:color/white"
+    android:elevation="2dp"
+    android:layout_margin="8dp">
+
+    <!-- Diary Title -->
+    <TextView
+        android:id="@+id/diary_entry_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Diary Title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:paddingBottom="4dp" />
+
+    <!-- Diary Date -->
+    <TextView
+        android:id="@+id/diary_entry_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:paddingBottom="6dp" />
+
+    <!-- Diary Content Preview -->
+    <TextView
+        android:id="@+id/diary_entry_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Diary Entry Content"
+        android:textSize="16sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="@android:color/black"
+        android:paddingBottom="6dp" />
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/delete_diary_entry_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textSize="14sp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        android:layout_gravity="end"
+        android:padding="6dp" />
+
+</LinearLayout>

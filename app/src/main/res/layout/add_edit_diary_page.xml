@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/login_bg">
+
+    <!-- Diary Title Input -->
+    <EditText
+        android:id="@+id/diary_title_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Title"
+        android:textSize="18sp"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Diary Date Input -->
+    <EditText
+        android:id="@+id/diary_date_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Date (YYYY/MM/DD)"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Diary Content Input -->
+    <EditText
+        android:id="@+id/diary_content_input"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="Write your diary entry here..."
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:gravity="top"
+        android:background="@android:drawable/editbox_background"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/save_diary_entry_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Entry"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Delete Button (Hidden for New Entries) -->
+    <Button
+        android:id="@+id/delete_diary_entry_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Entry"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textColor="@android:color/white"
+        android:visibility="gone"/> <!-- Hidden by default for new entries -->
+
+</LinearLayout>

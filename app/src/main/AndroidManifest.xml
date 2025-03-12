@@ -22,7 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateAccountActivity"/>
-<!--        <activity android:name=".ProfileActivity"/>-->
+        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".EditProfileActivity"/>
+        <activity android:name=".AddEditDiaryActivity"/>
     </application>
 
 </manifest>
