@@ -43,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                     result -> {
                         if (result.getResultCode() == Activity.RESULT_OK) {
-                            loadUserProfile(); // ✅ Reload profile after editing
+                            loadUserProfile(); // Reload profile after editing
                         }
                     });
 
@@ -81,7 +81,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         loadUserProfile();
         diaryEntries = loadDiaryEntries();
-        diaryAdapter = new DiaryAdapter(diaryEntries, this); // ✅ FIXED: Pass `this` as an activity
+        diaryAdapter = new DiaryAdapter(diaryEntries, this);
         diaryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         diaryRecyclerView.setAdapter(diaryAdapter);
 
@@ -168,7 +168,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             if (requestCode == EDIT_PROFILE_REQUEST) {
-                loadUserProfile(); // ✅ Reload profile data when returning from Edit Profile
+                loadUserProfile(); //reload data after editing profile
             } else if (requestCode == ADD_ENTRY_REQUEST || requestCode == EDIT_ENTRY_REQUEST) {
                 diaryEntries = loadDiaryEntries();
                 diaryAdapter = new DiaryAdapter(diaryEntries, this);
@@ -183,6 +183,6 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        loadUserProfile(); // ✅ Reload profile data when returning to this screen
+        loadUserProfile();
     }
 }

@@ -67,10 +67,10 @@ public class AddEditDiaryActivity extends AppCompatActivity {
             deleteButton.setVisibility(View.GONE);
         }
 
-        // ✅ Save entry (New or Edited)
+        // Save entry
         saveButton.setOnClickListener(v -> saveDiaryEntry());
 
-        // ✅ Delete entry
+        // Delete entry
         deleteButton.setOnClickListener(v -> showDeleteConfirmation());
     }
 
@@ -91,16 +91,14 @@ public class AddEditDiaryActivity extends AppCompatActivity {
         int entryCount = encryptedPrefs.getInt("diary_entry_count", 0);
 
         if (entryIndex == -1) {
-            // ✅ New Entry
             editor.putString("diary_entry_title_" + entryCount, title);
             editor.putString("diary_entry_date_" + entryCount, date);
             editor.putString("diary_entry_content_" + entryCount, content);
-            editor.putInt("diary_entry_count", entryCount + 1);
+            editor.putInt("diary_entry_count", entryCount + 1); // new entry
         } else {
-            // ✅ Edit Existing Entry
             editor.putString("diary_entry_title_" + entryIndex, title);
             editor.putString("diary_entry_date_" + entryIndex, date);
-            editor.putString("diary_entry_content_" + entryIndex, content);
+            editor.putString("diary_entry_content_" + entryIndex, content); // edit entry
         }
 
         editor.apply();

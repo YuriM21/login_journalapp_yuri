@@ -64,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String storedUsername = encryptedPrefs.getString("username", null);
         String storedPassword = encryptedPrefs.getString("password", null);
+        String storedProfileImage = encryptedPrefs.getString("profile_image", null); // ✅ Retrieve stored image URI
 
         if (storedUsername == null || storedPassword == null) {
             Toast.makeText(this, "No account found. Please sign up first.", Toast.LENGTH_SHORT).show();
@@ -73,11 +74,12 @@ public class LoginActivity extends AppCompatActivity {
         if (username.equals(storedUsername) && password.equals(storedPassword)) {
             Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ProfileActivity.class);
-            intent.putExtra("username", username);
+            intent.putExtra("profile_image", storedProfileImage); // ✅ Ensure the profile image is passed
             startActivity(intent);
             finish();
         } else {
             Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

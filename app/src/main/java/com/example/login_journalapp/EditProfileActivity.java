@@ -50,7 +50,9 @@ public class EditProfileActivity extends AppCompatActivity {
         changeProfilePicButton = findViewById(R.id.change_profile_pic_btn);
         deleteProfileButton = findViewById(R.id.delete_profile_btn);
 
-        // ✅ Secure SharedPreferences Initialization with Error Handling
+        /**
+         * initialize sharedpreference
+         */
         try {
             MasterKey masterKey = new MasterKey.Builder(this)
                     .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
@@ -67,27 +69,26 @@ public class EditProfileActivity extends AppCompatActivity {
         } catch (GeneralSecurityException | IOException e) {
             Toast.makeText(this, "Error: Secure storage failed to load. Try restarting the app.", Toast.LENGTH_LONG).show();
             e.printStackTrace();
-            finish(); // ✅ Prevents app crash
+            finish();
             return;
         }
 
-        // ✅ Prevent Null SharedPreferences Access
         if (encryptedPrefs == null) {
             Toast.makeText(this, "Error: Unable to access preferences.", Toast.LENGTH_SHORT).show();
-            finish(); // ✅ Prevents app crash
+            finish();
             return;
         }
 
         // Load user details from SharedPreferences
         loadUserDetails();
 
-        // ✅ Handle profile picture change
+        // Handle profile picture change
         changeProfilePicButton.setOnClickListener(v -> openGallery());
 
-        // ✅ Save changes button
+        // Save changes button
         saveChangesButton.setOnClickListener(v -> saveUserChanges());
 
-        // ✅ Delete account button
+        // Delete account button
         deleteProfileButton.setOnClickListener(v -> showDeleteConfirmation());
     }
 
@@ -167,7 +168,7 @@ public class EditProfileActivity extends AppCompatActivity {
         editor.putString("username", newUsername);
         editor.putString("password", newPassword);
 
-        // ✅ Ensure Profile Image is Updated
+        // Ensure Profile Image is Updated
         if (selectedImageUri != null) {
             editor.putString("profile_image", selectedImageUri.toString());
         }
@@ -175,7 +176,7 @@ public class EditProfileActivity extends AppCompatActivity {
         editor.apply();
         Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
 
-        // ✅ Send a success result to ProfileActivity
+        // Send success result to ProfileActivity
         Intent intent = new Intent();
         intent.putExtra("profile_updated", true);
         setResult(RESULT_OK, intent);
@@ -204,12 +205,11 @@ public class EditProfileActivity extends AppCompatActivity {
         }
 
         SharedPreferences.Editor editor = encryptedPrefs.edit();
-        editor.clear(); // ✅ Deletes all stored data
+        editor.clear();
         editor.apply();
 
         Toast.makeText(this, "Account deleted successfully!", Toast.LENGTH_LONG).show();
 
-        // ✅ Redirect to Login Screen after deletion
         Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Clears activity stack
         startActivity(intent);
