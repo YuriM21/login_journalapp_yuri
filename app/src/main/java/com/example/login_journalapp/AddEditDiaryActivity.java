@@ -1,7 +1,6 @@
 package com.example.login_journalapp;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +15,9 @@ import androidx.security.crypto.MasterKey;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class AddEditDiaryActivity extends AppCompatActivity {
 
@@ -79,10 +81,10 @@ public class AddEditDiaryActivity extends AppCompatActivity {
      */
     private void saveDiaryEntry() {
         String title = titleInput.getText().toString().trim();
-        String date = dateInput.getText().toString().trim();
         String content = contentInput.getText().toString().trim();
+        String currentDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date());
 
-        if (title.isEmpty() || date.isEmpty() || content.isEmpty()) {
+        if (title.isEmpty() || content.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -90,15 +92,15 @@ public class AddEditDiaryActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = encryptedPrefs.edit();
         int entryCount = encryptedPrefs.getInt("diary_entry_count", 0);
 
-        if (entryIndex == -1) {
+        if (entryIndex == -1) { // New entry
             editor.putString("diary_entry_title_" + entryCount, title);
-            editor.putString("diary_entry_date_" + entryCount, date);
+            editor.putString("diary_entry_date_" + entryCount, currentDate); // Store current date as modification date
             editor.putString("diary_entry_content_" + entryCount, content);
-            editor.putInt("diary_entry_count", entryCount + 1); // new entry
-        } else {
+            editor.putInt("diary_entry_count", entryCount + 1);
+        } else { // Editing existing entry
             editor.putString("diary_entry_title_" + entryIndex, title);
-            editor.putString("diary_entry_date_" + entryIndex, date);
-            editor.putString("diary_entry_content_" + entryIndex, content); // edit entry
+            editor.putString("diary_entry_date_" + entryIndex, currentDate); // Update modification date
+            editor.putString("diary_entry_content_" + entryIndex, content);
         }
 
         editor.apply();
@@ -106,6 +108,7 @@ public class AddEditDiaryActivity extends AppCompatActivity {
         setResult(RESULT_OK);
         finish();
     }
+
 
     /**
      * Shows a confirmation dialog before deleting an entry.

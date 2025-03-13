@@ -2,7 +2,6 @@ package com.example.login_journalapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
@@ -60,7 +59,7 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DiaryEntry entry = diaryEntries.get(position);
         holder.entryTitle.setText(entry.getTitle());
-        holder.entryDate.setText(entry.getDate());
+        holder.entryDate.setText("Last modified: " + entry.getDate()); // Show last modification date
         holder.entryText.setText(entry.getContent());
 
         // Edit Entry
@@ -76,6 +75,7 @@ public class DiaryAdapter extends RecyclerView.Adapter<DiaryAdapter.ViewHolder> 
         // Delete Entry
         holder.deleteButton.setOnClickListener(v -> showDeleteConfirmation(position));
     }
+
 
     @Override
     public int getItemCount() {

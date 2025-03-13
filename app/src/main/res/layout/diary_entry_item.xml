@@ -20,12 +20,12 @@
         android:textColor="@android:color/black"
         android:paddingBottom="4dp" />
 
-    <!-- Diary Date -->
+    <!-- Diary Date (Now Shows Last Modification Date) -->
     <TextView
         android:id="@+id/diary_entry_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Date"
+        android:text="Last modified: YYYY/MM/DD HH:mm:ss"
         android:textSize="14sp"
         android:textColor="@android:color/darker_gray"
         android:paddingBottom="6dp" />
